@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center; padding-top: 50px; color: rgb(7, 6, 3)">
+      Deméter APP
+    </h1>
+    <div class="main_div">
+      <h1>User Login</h1>
+      <form method="GET">
+        <div class="content">
+          <input type="text" required class="email" id="email" />
+          <span></span>
+          <label>User</label>
+        </div>
+        <div class="content">
+          <input type="password" required class="pass" id="password" autocomplete="off" />
+          <span></span>
+          <label>Password</label>
+        </div>
+        <input type="submit" value="Login" class="login" id="login" />
+      </form>
+    </div>
+    <script>
+      const email = document.getElementById("email");
+      const pass = document.getElementById("password");
+      const login = document.getElementById("login");
+      login.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (email.value != "admin" && pass.value != "admin") {
+          alert("Invalid credentials");
+        } else {
+          window.location.href = "crud/crud.html";
+        }
+      });
+    </script>
+  </body>
+</html>
