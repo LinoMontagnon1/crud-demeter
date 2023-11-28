@@ -3,7 +3,7 @@ from firebase_admin import credentials, firestore
 from faker import Faker
 import random
 
-class SQL:
+class Firebase:
     def __init__(self):
         cred = credentials.Certificate("demeter_firebase_key.json")
         firebase_admin.initialize_app(cred)
@@ -31,8 +31,7 @@ class SQL:
         
         return True
 
-firebase = SQL()
-
+db = Firebase()
 
 # ========== POPULAR BANCO DE DADOS ========== #
 # fake = Faker()

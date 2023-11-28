@@ -45,51 +45,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>||</td>
-                        <td>1234123</td>
-                        <td>Wilson-Anderson</td>
-                        <td>janetcrawford@example.com</td>
-                        <td>905-821-9041</td>
-                        <td>84594443760310</td>
-                        <td>202490734</td>
-                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
-                        <td>New Charlestown</td>
-                        <td>Kevinborough</td>
-                        <td>25958</td>
-                        <td>DE</td>
-                        <td>X</td>
-                    </tr>
-                    <tr>
-                        <td>||</td>
-                        <td>2341234</td>
-                        <td>Wilson-Anderson</td>
-                        <td>janetcrawford@example.com</td>
-                        <td>905-821-9041</td>
-                        <td>84594443760310</td>
-                        <td>202490734</td>
-                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
-                        <td>New Charlestown</td>
-                        <td>Kevinborough</td>
-                        <td>25958</td>
-                        <td>DE</td>
-                        <td>X</td>
-                    </tr>
-                    <tr>
-                        <td>||</td>
-                        <td>12341234</td>
-                        <td>Wilson-Anderson</td>
-                        <td>janetcrawford@example.com</td>
-                        <td>905-821-9041</td>
-                        <td>84594443760310</td>
-                        <td>202490734</td>
-                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
-                        <td>New Charlestown</td>
-                        <td>Kevinborough</td>
-                        <td>25958</td>
-                        <td>DE</td>
-                        <td>X</td>
-                    </tr>
+                    {% for doc in docs %}
+                        {% set key = doc.keys()|first %}
+                        <tr>
+                            <td>||</td>
+                            <td>{{ key }}</td>
+                            <td>{{ doc[key]['nome'] }}</td>
+                            <td>{{ doc[key]['email'] }}</td>
+                            <td>{{ doc[key]['telefone'] }}</td>
+                            <td>{{ doc[key]['cnpj'] }}</td>
+                            <td>{{ doc[key]['inscricaoEstadual'] }}</td>
+                            <td>{{ doc[key]['endereco'] }}</td>
+                            <td>{{ doc[key]['bairroDistrito'] }}</td>
+                            <td>{{ doc[key]['cidade'] }}</td>
+                            <td>{{ doc[key]['cep'] }}</td>
+                            <td>{{ doc[key]['uf'] }}</td>
+                            <td>X</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

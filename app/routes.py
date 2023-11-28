@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, flash, url_for
 from app import app
+from firebase_connection import db
 
 @app.route('/')
 def index():
@@ -13,5 +14,7 @@ def crud():
     if email != 'admin' or pwd != 'admin':
         flash('Credenciais inválidas', 'error')
         return redirect(url_for('index'))
+    
+    docs = db.read()
 
-    return render_template('crud.html')
+    return render_template('crud.html', docs=docs)
