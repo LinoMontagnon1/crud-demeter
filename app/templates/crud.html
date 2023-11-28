@@ -1,76 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRUD Page</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Demeter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}" />
 </head>
 <body>
-  <div class="container">
-    <h1>CRUD Deméter</h1>
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+            <!--profile image & text-->
+            <div class="profile">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8BAQHj4+P8/PwEBARvb2/m5uaKioqOjo6RkZFycnL09PTHx8eYmJj5+fnx8fE2NjampqZMTEzZ2dm3t7fDw8OEhIS9vb2kpKQSEhInJyfOzs5eXl6xsbF7e3sjIyMyMjJSUlIXFxdaWlpnZ2c9PT0FHWB5AAAEdElEQVR4nO3dDW/aMBAG4Bin4ZsQUgjQQtcW/v9fXC6BlYJIfW6i87H3kbapU1X5nS9O7NgsigAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECEjay11Z/lLyvdmu6kSS9Jq3yPF9Lm69GfjSGb+SjLHyhhVZz5amu++9PvPUpHlimKRRkpvsxXffE+kW5bS17mFOlbwPLL6i8WuXTjfs3a8d406VvtI2tve919V46J5qvRRgVdcg0JKf2LdDP92SgzTfHOCr2F+uwSsPyOidZCfbkZQu8VqtIhNfm5Ps8+UunGelm49OCpUF+lG8tFl1VmnIaZU6HulF2K5dg4dq/Ryli6zWx71w48WUk3mMfSMMNLaLQNNkNevPKfYyrdZB77wUxozJuuoWbCDkjPp5oy9j0S7lUl5BepMVvpRnOkHgGNSaSbzeBzGdIUQ4/MK+FOutkMfe7tvtKXbjZD8+rTPXvpZjOMvBKOpJvN4JfwSbrZDNyJRU1TlT7+SJN5JVxLN5th4pVQ0x2fscx2QdNTW7Rhx4tNrGpu4XPLH6lK6PPovZRuNMuMO0GMzWYm3WgOGw3YCZUtJ3qMpqpGUsJ9cNP02B1V7y24CxnqujCK1qyAQ1W3ihPO27W5dGM9WJs07lH4rifdXA/W0ltuR4V0a33tXF7kl9+x1ngR1tx2m6zVbuErC/XZoUQz3Vtq84/7hRqftkQpjkfVN3tquASNOYzLx3TpVv4Gld9kfjfidkkbbDXXaM3utuZ6yKH6fMtU994/VQ9Nbmv1dWl1X4H/UBFWIYef573e2/fB8jFPJdhxkue9JH2M4rx1MaI8XN+dnYI9wOAJ/yGVVVtfa2leTPurpztG+/60yOstexpDpsX+/vPapfm+0LYxsewPW7w6pTs/y30WijqRlhK5my/JIFVzH0kHhr1/tppEUkbpxv+obGEWfy9At4TVt280zPeTd17nXVkkoU+IXRZmmnrSmGfpCM1WvwpYC/c1WzkQHloIaMwh2Etx9u78puI++gmLEBNSm27OM/uGNIsQR1QbtVOitUOIN8Z+CyVao58zkI5zrVq/by0h/fYcWqH67fNqEtoZ789WxphLn9KRLlGNthwwDuzhZtx2B1Yhwzl0aeksXusZYzOUDvbF7xDQjwlNONPFafs9WAnn0GUn8UgYfWijZUddGMqWUxs1vMf+pYN0uNrMdDCSnoSxouF32NBFTJ96EsCl6HPm11UYx2gWneWjqXAAxvyzFe424wCKtNdhwDC2ZXY30JAQzkL5nWp2lUnHi+ihtEvTAB7cuGdHeAYBJGxjIf++EJb4u04o34c+r3vdhTDP33WaMITlqK7v+PJVGh07ixebo3S4Stbacv6tEG741np86pWrjwBKlFYxJp3N8cNYp4k6umHENP8Nog/JynTRjQF9EoitJxiM03gusnB6kPTafMdNDkHcCb/QB8tPj211YXwc9oLb/lX/zw5Jrw2J/fqRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFx/AWT6MDEb5iQcAAAAAElFTkSuQmCC" alt="profile_picture">
+                <h3>admin@demeter.br</h3>
+                <p>Administrador</p>
+            </div>
+            
+            <!--menu item-->
+        </div>
+        <div class="content">
+            <div class="header">
+                <h1>Lista de Produtores</h1>
+                <span>Adicionar Produtor</span>
+            </div>
 
-    <div class="section">
-      <h2>Users</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>CNPJ</th>
-            <th>Telefone</th>
-            <th>Inscrição Estadual</th>
-            <th>Endereço</th>
-            <th>Bairro</th>
-            <th>CEP</th>
-            <th>Cidade</th>
-            <th>UF</th>
-          </tr>
-        </thead>
-        <tbody id="userTableBody"></tbody>
-
-      </table>
-      <button id="deleteAllButton">Delete All</button>
+            <table class="tabela-produtores">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>CNPJ</th>
+                        <th>Inscrição Estadual</th>
+                        <th>Endereço</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>CEP</th>
+                        <th>UF</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>||</td>
+                        <td>1234123</td>
+                        <td>Wilson-Anderson</td>
+                        <td>janetcrawford@example.com</td>
+                        <td>905-821-9041</td>
+                        <td>84594443760310</td>
+                        <td>202490734</td>
+                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
+                        <td>New Charlestown</td>
+                        <td>Kevinborough</td>
+                        <td>25958</td>
+                        <td>DE</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>||</td>
+                        <td>2341234</td>
+                        <td>Wilson-Anderson</td>
+                        <td>janetcrawford@example.com</td>
+                        <td>905-821-9041</td>
+                        <td>84594443760310</td>
+                        <td>202490734</td>
+                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
+                        <td>New Charlestown</td>
+                        <td>Kevinborough</td>
+                        <td>25958</td>
+                        <td>DE</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>||</td>
+                        <td>12341234</td>
+                        <td>Wilson-Anderson</td>
+                        <td>janetcrawford@example.com</td>
+                        <td>905-821-9041</td>
+                        <td>84594443760310</td>
+                        <td>202490734</td>
+                        <td>2909 Cruz IsleWest Douglasport, WY 62509</td>
+                        <td>New Charlestown</td>
+                        <td>Kevinborough</td>
+                        <td>25958</td>
+                        <td>DE</td>
+                        <td>X</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <div class="section">
-      <h2>Add User</h2>
-      <form id="addUserForm">
-        <label for="userId">ID</label>
-        <input type="number" id="userId"  />
-        <br />
-        <label for="client_reciever_name">Nome</label>
-        <input type="text" id="userName"  />
-        <br />
-        <label for="client_cnpj">CNPJ</label>
-        <input type="number" id="userCnpj" />
-        <br />
-        <label for="client_phone">Telefone</label>
-        <input type="number" id="userPhone"  />
-        <br />
-        <label for="client_ie">Inscrição Estadual</label>
-        <input type="number" id="userIe"  />
-        <br />
-        <label for="client_address">Endereço</label>
-        <input type="text" id="userAddress"  />
-        <br />
-        <label for="client_neighborhood">Bairro</label>
-        <input type="text" id="userNeighborhood"  />
-        <br />
-        <label for="client_cep">CEP</label>
-        <input type="number" id="userCep"  />
-        <br />
-        <label for="client_city">Cidade</label>
-        <input type="text" id="userCity"  />
-        <br />
-        <label for="client_uf">UF</label>
-        <input type="text" id="userUf"  />
-        <br />
-        <button type="submit">Add User</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
