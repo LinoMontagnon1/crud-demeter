@@ -25,42 +25,42 @@
                 <h1>Lista de Produtores</h1>
                 <span>Adicionar Produtor</span>
             </div>
-
-            <table class="tabela-produtores">
+            
+            <table class="table-fill">
                 <thead>
                     <tr>
-                        <th>&nbsp;</th>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>CNPJ</th>
-                        <th>Inscrição Estadual</th>
-                        <th>Endereço</th>
-                        <th>Bairro</th>
-                        <th>Cidade</th>
-                        <th>CEP</th>
-                        <th>UF</th>
-                        <th>&nbsp;</th>
+                        <th class="">&nbsp;</th>
+                        <th class="">ID</th>
+                        <th class="">Nome</th>
+                        <th class="">Email</th>
+                        <th class="">Telefone</th>
+                        <th class="">CNPJ</th>
+                        <th class="">Inscrição Estadual</th>
+                        <th class="">Endereço</th>
+                        <th class="">Bairro</th>
+                        <th class="">Cidade</th>
+                        <th class="">CEP</th>
+                        <th class="">UF</th>
+                        <th class="">&nbsp;</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-hover">
                     {% for doc in docs %}
                         {% set key = doc.keys()|first %}
                         <tr>
-                            <td>||</td>
-                            <td>{{ key }}</td>
-                            <td>{{ doc[key]['nome'] }}</td>
-                            <td>{{ doc[key]['email'] }}</td>
-                            <td>{{ doc[key]['telefone'] }}</td>
-                            <td>{{ doc[key]['cnpj'] }}</td>
-                            <td>{{ doc[key]['inscricaoEstadual'] }}</td>
-                            <td>{{ doc[key]['endereco'] }}</td>
-                            <td>{{ doc[key]['bairroDistrito'] }}</td>
-                            <td>{{ doc[key]['cidade'] }}</td>
-                            <td>{{ doc[key]['cep'] }}</td>
-                            <td>{{ doc[key]['uf'] }}</td>
-                            <td>X</td>
+                            <td class=""><img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/></td>
+                            <td class="">{{ key }}</td>
+                            <td class="">{{ doc[key]['nome'] }}</td>
+                            <td class="">{{ doc[key]['email'] }}</td>
+                            <td class="">{{ doc[key]['telefone'] }}</td>
+                            <td class="">{{ doc[key]['cnpj'] }}</td>
+                            <td class="">{{ doc[key]['inscricaoEstadual'] }}</td>
+                            <td class="">{{ doc[key]['endereco'] }}</td>
+                            <td class="">{{ doc[key]['bairroDistrito'] }}</td>
+                            <td class="">{{ doc[key]['cidade'] }}</td>
+                            <td class="">{{ doc[key]['cep'] }}</td>
+                            <td class="">{{ doc[key]['uf'] }}</td>
+                            <td class=""><img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/delete-trash--v3.png" alt="delete-trash--v3"/></td>
                         </tr>
                     {% endfor %}
                 </tbody>
