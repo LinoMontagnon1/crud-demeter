@@ -1,13 +1,17 @@
-from flask import render_template
-from app import app
-
-from flask import render_template
+from flask import render_template, request, redirect, flash, url_for
 from app import app
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/crud')
-def outra_pagina():
+@app.route('/crud', methods=['POST', ])
+def crud():
+    email = request.form['email']
+    pwd = request.form['pwd']
+
+    if email != 'admin' or pwd != 'admin':
+        flash('Credenciais inválidas', 'error')
+        return redirect(url_for('index'))
+
     return render_template('crud.html')

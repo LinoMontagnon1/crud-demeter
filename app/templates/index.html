@@ -12,32 +12,28 @@
     </h1>
     <div class="main_div">
       <h1>User Login</h1>
-      <form method="GET">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+      <form class='form' id='form' method="post" action="{{ url_for('crud')}}">
         <div class="content">
-          <input type="text" required class="email" id="email" />
+          <input type="text" class="email" name='email' id="email" required/>
           <span></span>
           <label>User</label>
         </div>
         <div class="content">
-          <input type="password" required class="pass" id="password" autocomplete="off" />
+          <input type="password" class="pwd" name='pwd' id="pwd" autocomplete="off" required/>
           <span></span>
           <label>Password</label>
         </div>
-        <input type="submit" value="Login" class="login" id="login" />
+        <button class="submit">
+          <span>Login</span>
+      </button>
       </form>
     </div>
-    <script>
-      const email = document.getElementById("email");
-      const pass = document.getElementById("password");
-      const login = document.getElementById("login");
-      login.addEventListener("click", (event) => {
-        event.preventDefault();
-        if (email.value != "admin" && pass.value != "admin") {
-          alert("Invalid credentials");
-        } else {
-          window.location.href = "crud/crud.html";
-        }
-      });
-    </script>
   </body>
 </html>
