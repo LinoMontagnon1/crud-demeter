@@ -18,3 +18,11 @@ def crud():
     docs = db.read()
 
     return render_template('crud.html', docs=docs)
+
+@app.route('/delete', methods=['POST', ])
+def delete():
+    data = request.get_json()
+    doc_id = data.get('docId').replace(' ', '')
+    db.delete(doc_id)
+
+    return {'status': 'success'}

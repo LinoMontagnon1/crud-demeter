@@ -6,6 +6,7 @@
     <title>CRUD Demeter</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}" />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -25,7 +26,7 @@
                 <h1>Lista de Produtores</h1>
                 <span>Adicionar Produtor</span>
             </div>
-            
+
             <table class="table-fill">
                 <thead>
                     <tr>
@@ -48,8 +49,12 @@
                     {% for doc in docs %}
                         {% set key = doc.keys()|first %}
                         <tr>
-                            <td class=""><img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/></td>
-                            <td class="">{{ key }}</td>
+                            <td class="editar">
+                                <button>
+                                    <img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/>
+                                </button>
+                            </td>
+                            <td id="doc-id"> {{ key }}</td>
                             <td class="">{{ doc[key]['nome'] }}</td>
                             <td class="">{{ doc[key]['email'] }}</td>
                             <td class="">{{ doc[key]['telefone'] }}</td>
@@ -60,7 +65,11 @@
                             <td class="">{{ doc[key]['cidade'] }}</td>
                             <td class="">{{ doc[key]['cep'] }}</td>
                             <td class="">{{ doc[key]['uf'] }}</td>
-                            <td class=""><img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/delete-trash--v3.png" alt="delete-trash--v3"/></td>
+                            <td class="excluir">
+                                <button class="exclusao" onclick=excluirRegistro()>
+                                    <img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/delete-trash--v3.png" alt="delete-trash--v3"/>
+                                </button>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
