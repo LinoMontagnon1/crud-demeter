@@ -22,73 +22,33 @@ function excluirRegistro(docId) {
     }
 }
 
-function editarRegistro(docId) {
-    // Encontrar os elementos da linha correspondente
-    const row = document.querySelector(`tr[data-doc-id="${docId}"]`);
-
-    // Iterar sobre as células da linha, excluindo a célula do doc-id
-    const cells = row.cells;
-    for (let i = 1; i < cells.length - 1; i++) {
-        const currentContent = cells[i].textContent;
-
-        // Criar um campo de entrada e definir o valor atual como o valor padrão
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.value = currentContent;
-
-        // Substituir o conteúdo atual pelo campo de entrada
-        cells[i].textContent = '';
-        cells[i].appendChild(input);
-    }
-
-    // Substituir o botão de edição por botões de salvar e cancelar
-    const editarButton = row.querySelector('.editar button');
-    editarButton.innerHTML = `
-        <button onclick="salvarEdicao('${docId}')">Salvar</button>
-        <button onclick="cancelarEdicao('${docId}')">Cancelar</button>
-    `;
+function adicionarUsuario() {
+    var novaLinha = document.getElementById('nova-linha');
+    novaLinha.style.display = 'table-row';
 }
 
-function salvarEdicao(docId) {
-    // Encontrar os elementos da linha correspondente
-    const row = document.querySelector(`tr[data-doc-id="${docId}"]`);
+function salvarNovoUsuario() {
+    // Aqui você pode recuperar os valores dos campos de entrada e fazer o que for necessário,
+    // como enviar para o servidor, adicionar à lista 'docs', etc.
 
-    // Iterar sobre as células da linha
-    const cells = row.cells;
-    for (let i = 1; i < cells.length - 1; i++) {
-        const input = cells[i].querySelector('input');
+    // Exemplo: Adicionando um objeto fictício à lista docs
+    var novoUsuario = {
+        'tipoUsuario': 'Novo Tipo',
+        'nome': document.getElementById('novo-nome').value,
+        'email': document.getElementById('novo-email').value,
+        'cpf': document.getElementById('novo-cpf-cnpj').value,
+        'telefone': document.getElementById('novo-telefone').value,
+        'inscricaoEstadual': document.getElementById('novo-inscricao-estadual').value,
+        'endereco': document.getElementById('novo-endereco').value,
+        'bairroDistrito': document.getElementById('novo-bairro').value,
+        'cidade': document.getElementById('novo-cidade').value,
+        'cep': document.getElementById('novo-cep').value,
+        'uf': document.getElementById('novo-uf').value,
+    };
 
-        // Substituir o campo de entrada pelo valor atualizado
-        cells[i].textContent = input.value;
-    }
+    // Adicionando o novo usuário à lista de documentos
+    docs.push({ 'novo-id': novoUsuario });
 
-    // Restaurar o botão de edição
-    const editarButton = row.querySelector('.editar button');
-    editarButton.innerHTML = `
-        <button onclick="editarRegistro('${docId}')">
-            <img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/>
-        </button>
-    `;
-}
-
-function cancelarEdicao(docId) {
-    // Encontrar os elementos da linha correspondente
-    const row = document.querySelector(`tr[data-doc-id="${docId}"]`);
-
-    // Iterar sobre as células da linha
-    const cells = row.cells;
-    for (let i = 1; i < cells.length - 1; i++) {
-        const input = cells[i].querySelector('input');
-
-        // Substituir o campo de entrada pelo valor original
-        cells[i].textContent = input.defaultValue;
-    }
-
-    // Restaurar o botão de edição
-    const editarButton = row.querySelector('.editar button');
-    editarButton.innerHTML = `
-        <button onclick="editarRegistro('${docId}')">
-            <img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/>
-        </button>
-    `;
+    // Redirecionando para a página com a nova linha adicionada
+    window.location.reload();
 }

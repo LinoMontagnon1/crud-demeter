@@ -11,23 +11,23 @@ class Firebase:
 
     def create(self, dataset):
         document_id = f"{random.randint(100000, 999999)}_createTest"
-        self.db.collection('produtores').document(document_id).set(dataset)
+        self.db.collection('usuarios').document(document_id).set(dataset)
 
         return True
 
     def read(self):
-        docs_obj = self.db.collection('produtores').get()
+        docs_obj = self.db.collection('usuarios').get()
         docs = [{doc.id: doc.to_dict()} for doc in docs_obj]
 
         return docs
 
     def update(self, doc_id, dataset):
-        self.db.collection('produtores').document(doc_id).update(dataset)
+        self.db.collection('usuarios').document(doc_id).update(dataset)
         
         return True
 
     def delete(self, doc_id):
-        self.db.collection('produtores').document(doc_id).delete()
+        self.db.collection('usuarios').document(doc_id).delete()
         
         return True
 

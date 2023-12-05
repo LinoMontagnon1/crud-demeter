@@ -73,7 +73,7 @@ body {
     font-size: 24px;
 }
 
-.header span {
+.header button {
     color: #ffffff;
     background-color: var(--marrom-200);
     padding: 10px;
@@ -110,11 +110,11 @@ th:last-child {
     border-right: none;
 }
 
-tr:hover td {
+/* tr:hover td {
     background: #4E5066;
     color: #FFFFFF;
     border-top: 1px solid #22262e;
-}
+} */
 
 tr:first-child {
     border-top: none;
@@ -128,9 +128,9 @@ tr:nth-child(odd) td {
     background: #EBEBEB;
 }
 
-tr:nth-child(odd):hover td {
+/* tr:nth-child(odd):hover td {
     background: #4E5066;
-}
+} */
 
 tr:last-child td:first-child {
     border-bottom-left-radius: 8px;
@@ -140,10 +140,15 @@ tr:last-child td:last-child {
     border-bottom-right-radius: 8px;
 }
 
+input {
+    background: none;
+    outline: none;
+}
+
 td {
     background: #FFFFFF;
     padding: 5px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     font-weight: 300;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
@@ -152,4 +157,38 @@ td {
 
 td:last-child {
     border-right: 0px;
+}
+
+/* Adicione larguras máximas para as colunas específicas */
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6),
+td:nth-child(7),
+td:nth-child(8),
+td:nth-child(9),
+td:nth-child(10),
+td:nth-child(11),
+td:nth-child(12),
+td:nth-child(13) {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.editar, .excluir {
+    width: 40px;
+}
+
+.editar img:hover, .excluir img:hover {
+    cursor: pointer;
+}
+
+#nova-linha td {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
