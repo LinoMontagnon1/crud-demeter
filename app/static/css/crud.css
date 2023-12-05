@@ -81,6 +81,10 @@ body {
     border-radius: 15px;
 }
 
+.header button:hover {
+    cursor: pointer;
+}
+
 /*** Table Styles **/
 .table-fill {
     background: white;
@@ -182,7 +186,7 @@ td:nth-child(13) {
     width: 40px;
 }
 
-.editar img:hover, .excluir img:hover {
+.editar img:hover, .excluir img:hover, .botao {
     cursor: pointer;
 }
 

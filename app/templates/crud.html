@@ -24,7 +24,7 @@
         <div class="content">
             <div class="header">
                 <h1>Lista de Produtores</h1>
-                <button onclick="adicionarUsuario()">Adicionar Produtor</span>
+                <button class="botao" onclick="adicionarUsuario()">Adicionar Produtor</span>
             </div>
 
             <table class="table-fill">
@@ -35,7 +35,7 @@
                         <th class="">Usuario</th>
                         <th class="">Nome</th>
                         <th class="">Email</th>
-                        <th class="">CPF/CNPJ</th>
+                        <th class="">CNPJ</th>
                         <th class="">Telefone</th>
                         <th class="">Inscrição Estadual</th>
                         <th class="">Endereço</th>
@@ -53,11 +53,11 @@
                                 <img width="24" height="24" src="https://img.icons8.com/fluency-systems-regular/48/pencil-tip.png" alt="pencil-tip"/>
                             </button>
                         </td>
-                        <td><p>XXXXXXXXXXXXXXXXXXXXXXXXX</p></td>
+                        <td>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</td>
                         <td><input type="text" id="novo-usuario"></td>
                         <td><input type="text" id="novo-nome"></td>
                         <td><input type="text" id="novo-email"></td>
-                        <td><input type="text" id="novo-cpf-cnpj"></td>
+                        <td><input type="text" id="novo-cnpj"></td>
                         <td><input type="text" id="novo-telefone"></td>
                         <td><input type="text" id="novo-inscricao-estadual"></td>
                         <td><input type="text" id="novo-endereco"></td>
@@ -66,11 +66,12 @@
                         <td><input type="text" id="novo-cep"></td>
                         <td><input type="text" id="novo-uf"></td>
                         <td class="excluir">
-                            <button onclick="salvarNovoUsuario()">
+                            <button class='botao' onclick="salvarNovoUsuario()">
                                 Salvar
                             </button>
                         </td>
                     </tr>
+
                     {% for doc in docs %}
                         {% set key = doc.keys()|first %}
                         <tr>
@@ -83,11 +84,7 @@
                             <td class="">{{ doc[key]['tipoUsuario'] }}</td>
                             <td class="">{{ doc[key]['nome'] }}</td>
                             <td class="">{{ doc[key]['email'] }}</td>
-                            {% if doc[key]['cpf'] == "" %}
-                                <td class="">{{ doc[key]['cnpj'] }}</td>
-                            {% else %}
-                                <td class="">{{ doc[key]['cpf'] }}</td>
-                            {% endif %}
+                            <td class="">{{ doc[key]['cnpj'] }}</td>
                             <td class="">{{ doc[key]['telefone'] }}</td>
                             <td class="">{{ doc[key]['inscricaoEstadual'] }}</td>
                             <td class="">{{ doc[key]['endereco'] }}</td>

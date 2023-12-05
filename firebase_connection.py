@@ -10,7 +10,7 @@ class Firebase:
         self.db = firestore.client() 
 
     def create(self, dataset):
-        document_id = f"{random.randint(100000, 999999)}_createTest"
+        document_id = f"{random.randint(100000, 999999)}_produtor"
         self.db.collection('usuarios').document(document_id).set(dataset)
 
         return True
